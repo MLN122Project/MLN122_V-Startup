@@ -1,0 +1,20 @@
+{
+  "name": "v-startup-game",
+  "version": "2.0.0",
+  "private": true,
+  "description": "V-Startup: Đường Đua Kiến Tạo - Realtime multiplayer game",
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev": "node node_modules/concurrently/dist/bin/concurrently.js -n SERVER,CLIENT -c cyan.bold,magenta.bold \"node server/index.js\" \"cd client && node ../node_modules/vite/bin/vite.js\"",
+    "dev:server": "node server/index.js",
+    "dev:client": "cd client && node ../node_modules/vite/bin/vite.js",
+    "build": "cd client && node ../node_modules/vite/bin/vite.js build",
+    "start": "node node_modules/concurrently/dist/bin/concurrently.js -n SERVER,CLIENT -c cyan.bold,magenta.bold \"node server/index.js\" \"cd client && node ../node_modules/vite/bin/vite.js\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
