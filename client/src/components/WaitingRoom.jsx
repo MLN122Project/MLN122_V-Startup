@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import GameGuidePanel from './GameGuidePanel'
+import SectorImage from './SectorImage'
 
 const stagger = {
   show: { transition: { staggerChildren: 0.08 } }
@@ -54,7 +55,7 @@ export default function WaitingRoom({ room, myRole, onStart }) {
                     ? 'bg-emerald-50/60 border-emerald-200'
                     : 'bg-white/30 border-white/60 opacity-50'}`}
               >
-                <span className="text-2xl">{team.emoji}</span>
+                <SectorImage team={team} size="md" />
                 <div className="flex-1 min-w-0">
                   <p className={`font-semibold text-sm truncate ${team.connected ? 'text-slate-800' : 'text-slate-400'}`}>
                     {team.customName}

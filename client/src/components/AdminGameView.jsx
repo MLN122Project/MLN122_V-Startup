@@ -6,6 +6,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { DRAMA_EVENTS, TACTICS, TACTICS_LIST } from '../data/founders'
+import SectorImage from './SectorImage'
 
 const PHASE_LABEL = {
   idle:         { text: '🎲 Chờ random sự kiện',     color: 'badge-sky' },
@@ -56,7 +57,7 @@ function TeamCard({ team, submission, isFrozenBlind }) {
     >
       {team.frozen && <div className="absolute inset-0 rounded-xl pointer-events-none"><div className="frozen-overlay" /></div>}
       <div className="flex items-center gap-2 mb-2">
-        <span className="text-xl">{team.emoji}</span>
+        <SectorImage team={team} size="sm" />
         <div className="flex-1 min-w-0">
           <p className="text-xs font-bold text-slate-800 truncate">{team.customName}</p>
           <p className="text-[10px] text-slate-400">{team.sectorShort}</p>

@@ -5,6 +5,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import CollapsibleList from './CollapsibleList'
+import SectorImage from './SectorImage'
 import {
   SCORE_FORMULA, METRICS, GAME_FLOW, TACTICS_GUIDE, RULES, SECTORS,
 } from '../data/gameGuide'
@@ -127,7 +128,7 @@ export function SectorGuideTable() {
       expandLabel="▼ Xem thêm ngành & perk"
       renderItem={(s, i) => (
         <div key={i} className="flex items-center gap-3 py-1.5 border-b border-white/50 last:border-0">
-          <span className="text-xl">{s.emoji}</span>
+          <SectorImage name={s.name} size="sm" emoji={s.emoji} />
           <span className="font-semibold text-sm text-slate-700 w-24">{s.name}</span>
           <span className="text-xs text-slate-500 flex-1">{s.perk}</span>
         </div>

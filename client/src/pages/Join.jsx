@@ -3,6 +3,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { socket, saveSession } from '../socket'
 import { SectorGuideTable } from '../components/GameGuidePanel'
+import SectorImage from '../components/SectorImage'
 
 export default function Join() {
   const navigate = useNavigate()
@@ -138,7 +139,7 @@ export default function Join() {
                               ? 'border-sky-400 bg-sky-50 shadow-card-hover'
                               : 'border-white/80 bg-white/50 hover:border-sky-200 hover:bg-white/70'}`}
                       >
-                        <span className="text-3xl">{team.emoji}</span>
+                        <SectorImage team={team} size="lg" />
                         <div className="flex-1 min-w-0">
                           <p className="font-semibold text-slate-800 text-sm">{team.sectorShort}</p>
                           <p className="text-xs text-slate-400">{team.sector}</p>
