@@ -208,7 +208,7 @@ function LBRow({ t, rank }) {
   return (
     <div className={`flex items-center gap-2 px-3 py-2 rounded-xl text-xs ${rank <= 3 ? 'bg-yellow-50/60' : ''}`}>
       <span className="w-6 text-center font-bold">{medals[rank] ?? rank}</span>
-      <span>{t.emoji}</span>
+      <SectorImage team={{ id: t.teamId, sectorShort: t.sectorShort, emoji: t.emoji }} size="sm" className="w-7 h-7" />
       <span className="flex-1 truncate font-semibold">{t.teamName}</span>
       <span className="text-slate-400">{t.budget?.toFixed(0)}M</span>
       <span className="text-amber-600">⚡{t.ap}</span>
