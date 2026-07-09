@@ -9,6 +9,7 @@ import { SCORE_FORMULA } from '../data/gameGuide'
 import GameGuidePanel from './GameGuidePanel'
 import FreezeScreenOverlay from './FreezeScreenOverlay'
 import SectorImage from './SectorImage'
+import EventImage from './EventImage'
 
 function StatChip({ icon, label, value, color, glow }) {
   return (
@@ -237,7 +238,7 @@ function EventChoicePanel({
 
       <div className={`mt-4 ${isFrozenBlind ? 'invisible select-none pointer-events-none' : ''}`}>
         <div className="flex items-start gap-3 mb-4">
-          <span className="text-4xl">{event.emoji}</span>
+          <EventImage event={event} className="w-20 h-20" />
           <div>
             <h2 className="font-display font-bold text-lg text-slate-800">{event.label}</h2>
             <p className="text-sm text-slate-500 mt-0.5">{event.description}</p>
