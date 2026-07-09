@@ -8,6 +8,7 @@ import { DRAMA_EVENTS, TACTICS } from '../data/founders'
 import { SCORE_FORMULA } from '../data/gameGuide'
 import GameGuidePanel from './GameGuidePanel'
 import FreezeScreenOverlay from './FreezeScreenOverlay'
+import SectorImage from './SectorImage'
 
 function StatChip({ icon, label, value, color, glow }) {
   return (
@@ -341,7 +342,7 @@ function MiniLB({ teams, myId }) {
     <div className="flex flex-col gap-1">
       {[...teams].sort((a, b) => b.score - a.score).map((t) => (
         <div key={t.id} className={`flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs ${t.id === myId ? 'bg-sky-50 border border-sky-200' : 'bg-white/40'}`}>
-          <span>{t.emoji}</span>
+          <SectorImage team={t} size="sm" className="w-7 h-7" />
           <span className="flex-1 truncate font-semibold">{t.customName}</span>
           <span className="font-bold text-violet-700">{t.score?.toFixed(0)}</span>
         </div>
@@ -392,7 +393,7 @@ export default function PlayerGameView({ room, myTeam, roomCode, socket }) {
       <div className="max-w-xl mx-auto flex flex-col gap-4">
         <motion.div className="glass p-5 relative overflow-hidden" style={{ borderTop: `3px solid ${myTeam.color}` }}>
           <div className="flex items-center gap-4">
-            <span className="text-5xl">{myTeam.emoji}</span>
+            <SectorImage team={myTeam} size="xl" className="w-20 h-20" />
             <div>
               <h1 className="font-display font-bold text-2xl">{myTeam.customName}</h1>
               <p className="text-slate-500 text-sm">{myTeam.sector}</p>

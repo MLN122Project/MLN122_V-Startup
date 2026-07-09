@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { socket, saveSession } from '../socket'
+import SectorImage from '../components/SectorImage'
 
 export default function AdminLobby() {
   const navigate = useNavigate()
@@ -160,7 +161,7 @@ export default function AdminLobby() {
                     className={`flex items-center gap-3 p-3 rounded-xl transition-all
                       ${team.connected ? 'bg-emerald-50/70 border border-emerald-200' : 'bg-white/40 border border-white/60'}`}
                   >
-                    <span className="text-2xl">{team.emoji}</span>
+                    <SectorImage team={team} size="md" />
                     <div className="flex-1 min-w-0">
                       <p className={`font-semibold text-sm truncate ${team.connected ? 'text-slate-800' : 'text-slate-400'}`}>
                         {team.customName}

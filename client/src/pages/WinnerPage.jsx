@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import confetti from 'canvas-confetti'
 import { STORAGE, clearSession } from '../socket'
+import SectorImage from '../components/SectorImage'
 
 // ─── Victory chime ────────────────────────────────────────────────────────────
 function playVictoryChime() {
@@ -54,7 +55,7 @@ function PodiumSlot({ team, rank, height, delay }) {
       transition={{ delay, type: 'spring', damping: 14, stiffness: 100 }}
       className="flex flex-col items-center gap-2"
     >
-      <div className="text-4xl">{team?.emoji || '🏢'}</div>
+      <SectorImage team={team} size="lg" className="w-16 h-16" />
       <div className="text-center max-w-[120px]">
         <p className="font-display font-bold text-sm text-slate-800 leading-tight">{team?.customName}</p>
         <p className="text-xs text-slate-500">{team?.sectorShort}</p>
@@ -86,7 +87,7 @@ function AwardCard({ emoji, title, team, sub, delay, color = '#38BDF8' }) {
       <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2">{title}</p>
       {team ? (
         <>
-          <div className="text-2xl">{team.emoji}</div>
+          <SectorImage team={team} size="md" />
           <p className="font-display font-bold text-sm text-slate-800 mt-1">{team.customName}</p>
           {sub && <p className="text-xs text-slate-400 mt-0.5">{sub}</p>}
         </>
@@ -221,7 +222,7 @@ export default function WinnerPage() {
                     </td>
                     <td className="py-3 px-3">
                       <div className="flex items-center gap-2">
-                        <span className="text-xl">{team.emoji}</span>
+                        <SectorImage team={team} size="sm" />
                         <div>
                           <p className="font-semibold text-slate-800">{team.customName}</p>
                           <p className="text-xs text-slate-400">{team.founder}</p>
