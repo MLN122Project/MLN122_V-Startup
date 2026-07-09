@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { DRAMA_EVENTS, TACTICS, TACTICS_LIST } from '../data/founders'
 import SectorImage from './SectorImage'
+import EventImage from './EventImage'
 
 const PHASE_LABEL = {
   idle:         { text: '🎲 Chờ random sự kiện',     color: 'badge-sky' },
@@ -32,7 +33,9 @@ function EventBoard({ usedIds, currentId }) {
               className={`relative rounded-xl p-2.5 text-center border-2 transition-all select-none
                 ${current ? 'border-violet-400 bg-violet-50' : used ? 'border-slate-200 bg-slate-50 opacity-50' : 'border-white/70 bg-white/60'}`}
             >
-              <div className="text-2xl mb-1">{ev.emoji}</div>
+              <div className="flex justify-center mb-1.5">
+                <EventImage event={ev} className="w-14 h-14" />
+              </div>
               <p className="text-[10px] font-semibold text-slate-600 leading-tight line-clamp-2">{ev.label.replace(/[^\w\sÀ-ỹ]/g, '').trim()}</p>
               {used && !current && (
                 <div className="absolute inset-0 flex items-center justify-center rounded-xl bg-white/60">
@@ -94,7 +97,7 @@ function EventQuestionPanel({ event }) {
   return (
     <div className="mb-4">
       <div className="flex items-start gap-3 mb-4">
-        <span className="text-4xl">{event.emoji}</span>
+        <EventImage event={event} className="w-24 h-24" />
         <div>
           <p className="font-display font-bold text-lg text-slate-800">{event.label}</p>
           <p className="text-sm text-slate-500 mt-1">{event.description}</p>
